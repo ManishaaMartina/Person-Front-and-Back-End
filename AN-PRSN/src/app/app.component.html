@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+
+  <!--The content below is only a placeholder and can be replaced.-->
+  <div class="panel panel-default">
+    <div class="panel-heading">Person Crud :</div>
+    <div class="panel-body">
+      <form #myForm="ngForm" class="form-horizontal" (submit)="addPerson()">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name : </label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" [(ngModel)]="model.name" name="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age" class="col-sm-2 control-label">Age : </label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" [(ngModel)]="model.age" name="age">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="reset" class="btn btn-info">Cancel</button>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Age</td>
+          <td width="200" align="center">Action</td>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tbody>
+          <tr *ngFor="let Person of Persons">
+            <td>{{Person.id}}</td>
+            <td>{{Person.name}}</td>
+            <td>{{Person.age}}</td>
+            <td width="275">
+              <a class="btn btn-success" (click)="edit(Person.id)">Edit</a>
+              <a class="btn btn-danger" (click)="delete(Person.id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
